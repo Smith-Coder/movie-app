@@ -1,0 +1,12 @@
+<div class="card mb-3">
+    <img *ngIf="movie.Poster !== 'N/A'" [src]="movie.Poster" alt="Movie Poster" class="card-img-top">
+    <div class="card-body">
+        <h5 class="card-title">{{ movie.Title }}</h5>
+        <p class="card-text"><strong>Year:</strong> {{ movie.Year }}</p>
+        <p class="card-text"><strong>Type:</strong> {{ movie.Type }}</p>
+    </div>
+    <div class="card-footer">
+        <!-- <a [routerLink]="['/movies', movie.imdbID]" class="btn btn-primary">View Details</a> -->
+        <button class="btn btn-primary" (click)="navigateToMovieDetails(movie.imdbID)">View Details</button>
+    </div>
+</div>

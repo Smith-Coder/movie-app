@@ -1,0 +1,64 @@
+<div class="container">
+    <h2 class="title">{{ movie?.Title }}</h2>
+    <div class="row">
+        <div class="col-md-4">
+            <img [src]="movie?.Poster" alt="Movie Poster" class="img-fluid">
+        </div>
+        <div class="col-md-8">
+            <div class="details">
+                <div class="detail">
+                    <strong>Year:</strong>
+                    <span>{{ movie?.Year }}</span>
+                </div>
+                <div class="detail">
+                    <strong>Rated:</strong>
+                    <span>{{ movie?.Rated }}</span>
+                </div>
+                <div class="detail">
+                    <strong>Released:</strong>
+                    <span>{{ movie?.Released }}</span>
+                </div>
+                <div class="detail">
+                    <strong>Runtime:</strong>
+                    <span>{{ movie?.Runtime }}</span>
+                </div>
+                <div class="detail">
+                    <strong>Genre:</strong>
+                    <span>{{ movie?.Genre }}</span>
+                </div>
+                <div class="detail">
+                    <strong>Director:</strong>
+                    <span>{{ movie?.Director }}</span>
+                </div>
+                <div class="detail">
+                    <strong>Writer:</strong>
+                    <span>{{ movie?.Writer }}</span>
+                </div>
+                <div class="detail">
+                    <strong>Actors:</strong>
+                    <span>{{ movie?.Actors }}</span>
+                </div>
+                <div class="detail">
+                    <strong>Language:</strong>
+                    <span>{{ movie?.Language }}</span>
+                </div>
+                <div class="detail">
+                    <strong>Country:</strong>
+                    <span>{{ movie?.Country }}</span>
+                </div>
+                <div class="detail">
+                    <strong>Awards:</strong>
+                    <span>{{ movie?.Awards }}</span>
+                </div>
+                <div class="detail">
+                    <strong>imdbRating:</strong>
+                    <span>{{ movie?.imdbRating }}</span>
+                </div>
+                <div class="detail">
+                    <strong>Type:</strong>
+                    <span>{{ movie?.Type }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="form-group">
+                <input type="text" [(ngModel)]="searchTerm" placeholder="Search movies" (keyup.enter)="searchMovies()"
+                    class="form-control">
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-4" *ngFor="let movie of movies" infiniteScroll [infiniteScrollDistance]="2"
+            (scrolled)="onScroll()">
+            <app-movie-content [movie]="movie"></app-movie-content>
+        </div>
+        <div class="col-12" *ngIf="loading" style="text-align: center;">
+            <div class="spinner-border text-primary"></div>
+        </div>
+    </div>
+</div>

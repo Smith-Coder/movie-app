@@ -1,0 +1,15 @@
+.details {
+    margin-top: 20px;
+}
+
+.detail {
+    margin-bottom: 10px;
+}
+
+.detail strong {
+    font-weight: bold;
+}
+
+.detail span {
+    margin-left: 10px;
+}
