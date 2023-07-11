@@ -1,10 +1,13 @@
 <div class="container">
     <h2 class="title">{{ movie?.Title }}</h2>
-    <div class="row">
+    <div class="col-12" *ngIf="loading" style="text-align: center;">
+        <div class="spinner-border text-primary"></div>
+    </div>
+    <div *ngIf="!loading" class="row">
         <div class="col-md-4">
             <img [src]="movie?.Poster" alt="Movie Poster" class="img-fluid">
         </div>
-        <div class="col-md-8">
+        <div *ngIf="!loading" class="col-md-8">
             <div class="details">
                 <div class="detail">
                     <strong>Year:</strong>
