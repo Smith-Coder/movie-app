@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
     providedIn: 'root'
 })
 export class MovieService {
-    private apiUrl = 'http://www.omdbapi.com/';
+    private apiUrl = 'https://www.omdbapi.com/';
     private apiKey = '3118d9b2';
 
     constructor(private http: HttpClient) { }
