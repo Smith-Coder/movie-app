@@ -12,7 +12,7 @@ export class MovieService {
     constructor(private http: HttpClient) { }
 
     searchMovies(title: string, page: number): Observable<any> {
-        const url = `${this.apiUrl}?apikey=${this.apiKey}&s=${encodeURIComponent(title)}&type=movie&page=${page}`;
+        const url = `${this.apiUrl}?apikey=${this.apiKey}&s=${encodeURIComponent(title)}&page=${page}`;
         return this.http.get<any>(url);
     }
     getMovieDetails(id: string): Observable<any> {

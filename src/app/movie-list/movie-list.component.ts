@@ -9,9 +9,11 @@ import { MovieService } from '../movie.service';
 export class MovieListComponent implements OnInit {
   searchTerm: string = "Marvel";
   movies: any[] = [];
+  filteredMovies: any[] = [];
   loading: boolean = false;
   page: number = 1;
   hasMoreResults: boolean = true;
+  selectedFilter: string = 'all'; // Track the selected filter option
 
   constructor(private movieService: MovieService) { }
 
@@ -32,8 +34,10 @@ export class MovieListComponent implements OnInit {
       this.movieService.searchMovies(this.searchTerm, this.page)
         .subscribe(data => {
           this.movies = this.movies.concat(data.Search);
+          this.filteredMovies = this.movies; // Initialize filteredMovies array
           this.hasMoreResults = (data.totalResults - this.movies.length) > 0;
           this.loading = false;
+          this.filterMovies(); // Apply initial filter
         });
       this.page++;
     }
@@ -41,5 +45,15 @@ export class MovieListComponent implements OnInit {
 
   onScroll(): void {
     this.loadMovies();
+  }
+
+  filterMovies(): void {
+    if (this.selectedFilter === 'movies') {
+      this.filteredMovies = this.movies.filter(movie => movie.Type === 'movie');
+    } else if (this.selectedFilter === 'series') {
+      this.filteredMovies = this.movies.filter(movie => movie.Type === 'series');
+    } else {
+      this.filteredMovies = this.movies; // Show all movies if 'all' filter selected
+    }
   }
 }

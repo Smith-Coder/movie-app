@@ -1,37 +1,51 @@
-<div class="container">
-    <h1>IMDB Lite</h1>
+<!-- <div class="container">
     <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
         <div class="container-fluid">
-            <div class="collapse navbar-collapse" id="navbarColor02">
-              <ul class="navbar-nav me-auto">
-                <li class="nav-item">
-                  <a class="nav-link active" href="#">Home
-                    <span class="visually-hidden">(current)</span>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Movies</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Series</a>
-                </li>
-                </ul>
-            </div>
-        
-        
-            
-            <input class="form-control me-sm-2" type="text" [(ngModel)]="searchTerm" placeholder="Search movies" (keyup.enter)="searchMovies()">
+
+            <h1 class="navbar-brand">IMDB Lite</h1>
+
+            <input class="form-control me-sm-2" type="text" [(ngModel)]="searchTerm" placeholder="Search movies"
+                (keyup.enter)="searchMovies()">
             <button class="btn btn-secondary my-2 my-sm-0" (click)="searchMovies()">Search</button>
-        
-    
-    </div>
-</nav>
 
 
-<br>
-
+        </div>
+    </nav>
+    <br>
     <div class="row mb-4">
         <div class="col-md-3" *ngFor="let movie of movies" infiniteScroll [infiniteScrollDistance]="2"
+            (scrolled)="onScroll()">
+            <app-movie-content [movie]="movie"></app-movie-content>
+        </div>
+        <div class="col-12" *ngIf="loading" style="text-align: center;">
+            <div class="spinner-border text-primary"></div>
+        </div>
+    </div>
+</div> -->
+
+<div class="container">
+    <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+        <div class="container-fluid">
+            <h1 class="navbar-brand">IMDB Lite</h1>
+
+            <input class="form-control me-sm-2" type="text" [(ngModel)]="searchTerm" placeholder="Search movies"
+                (keyup.enter)="searchMovies()">
+            <button class="btn btn-secondary my-2 my-sm-0" (click)="searchMovies()">Search</button>
+
+            <div class="dropdown ml-auto">
+                <label for="filterDropdown">Filter:</label>
+                <select id="filterDropdown" [(ngModel)]="selectedFilter" (change)="filterMovies()">
+                    <option value="all">All</option>
+                    <option value="movies">Movies</option>
+                    <option value="series">Series</option>
+                </select>
+            </div>
+        </div>
+    </nav>
+
+    <br>
+    <div class="row mb-4">
+        <div class="col-md-3" *ngFor="let movie of filteredMovies" infiniteScroll [infiniteScrollDistance]="2"
             (scrolled)="onScroll()">
             <app-movie-content [movie]="movie"></app-movie-content>
         </div>

@@ -6,9 +6,9 @@
             alt="Placeholder Image" class="card-img-top fixed-image">
     </div>
     <div class="card-body d-flex flex-column">
-        <h5 class="card-title">{{ movie.Title }}</h5>
-        <p class="card-text"><strong>Year:</strong> {{ movie.Year }}</p>
-        <p class="card-text"><strong>Type:</strong> {{ movie.Type }}</p>
+        <h5 class="card-title"><strong>{{ movie.Title }}</strong></h5>
+        <p class="card-text"><strong>{{ movie.Year }}</strong></p>
+        <p class="card-text"><strong>{{ movie.Type }}</strong></p>
         <div class="mt-auto">
             <button class="btn btn-primary" (click)="navigateToMovieDetails(movie.imdbID)">View Details</button>
         </div>
