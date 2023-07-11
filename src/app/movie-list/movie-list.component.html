@@ -1,12 +1,34 @@
 <div class="container">
-    <div class="row">
-        <div class="col-12">
-            <div class="form-group">
-                <input type="text" [(ngModel)]="searchTerm" placeholder="Search movies" (keyup.enter)="searchMovies()"
-                    class="form-control">
+    <h1>IMDB Lite</h1>
+    <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="navbarColor02">
+              <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                  <a class="nav-link active" href="#">Home
+                    <span class="visually-hidden">(current)</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Movies</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Series</a>
+                </li>
+                </ul>
             </div>
-        </div>
+        
+        
+            
+            <input class="form-control me-sm-2" type="text" [(ngModel)]="searchTerm" placeholder="Search movies" (keyup.enter)="searchMovies()">
+            <button class="btn btn-secondary my-2 my-sm-0" (click)="searchMovies()">Search</button>
+        
+    
     </div>
+</nav>
+
+
+<br>
 
     <div class="row">
         <div class="col-3" *ngFor="let movie of movies" infiniteScroll [infiniteScrollDistance]="2"
