@@ -8,8 +8,8 @@
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-3" *ngFor="let movie of movies" infiniteScroll [infiniteScrollDistance]="2"
+    <div class="row mb-4">
+        <div class="col-md-3" *ngFor="let movie of movies" infiniteScroll [infiniteScrollDistance]="2"
             (scrolled)="onScroll()">
             <app-movie-content [movie]="movie"></app-movie-content>
         </div>

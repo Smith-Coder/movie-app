@@ -10,6 +10,7 @@ import { MovieService } from '../movie.service';
 export class MovieDetailsComponent implements OnInit {
   movieId: string | null = '';
   movie: any;
+  loading: boolean = true;
 
   constructor(private route: ActivatedRoute, private movieService: MovieService) { }
 
@@ -25,6 +26,7 @@ export class MovieDetailsComponent implements OnInit {
     this.movieService.getMovieDetails(this.movieId!)
       .subscribe(data => {
         this.movie = data;
+        this.loading = false;
       });
   }
 }

@@ -1,0 +1,23 @@
+.movie-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.card-img-container {
+    flex: 1;
+    background-color: black;
+}
+
+.card-body {
+    flex: 1;
+}
+
+.btn {
+    width: 100%;
+}
+
+.fixed-image {
+    height: 450px;
+    object-fit: contain;
+}
