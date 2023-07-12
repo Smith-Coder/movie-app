@@ -1,0 +1,55 @@
+.container {
+    margin-top: 20px;
+}
+
+.title {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.spinner-border {
+    margin-top: 20px;
+}
+
+.row {
+    margin-top: 20px;
+}
+
+.col-md-4 {
+    text-align: center;
+}
+
+.img-fluid {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.col-md-8 {
+    padding-left: 40px;
+}
+
+.details {
+    font-size: 18px;
+}
+
+.detail {
+    margin-bottom: 10px;
+}
+
+.detail strong {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.detail span {
+    font-weight: normal;
+}
+
+.loading {
+    margin-top: 20px;
+    text-align: center;
+}

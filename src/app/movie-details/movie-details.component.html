@@ -1,67 +1,33 @@
-<div class="container">
-    <h2 class="title">{{ movie?.Title }}</h2>
-    <div class="col-12" *ngIf="loading" style="text-align: center;">
-        <div class="spinner-border text-primary"></div>
-    </div>
-    <div *ngIf="!loading" class="row">
+<h1>Movie Details</h1>
+
+<div *ngIf="movieDetails" class="movie-details">
+    <div class="row">
         <div class="col-md-4">
-            <img [src]="movie?.Poster" alt="Movie Poster" class="img-fluid">
+            <img class="img-fluid poster" [src]="'https://image.tmdb.org/t/p/original/' + movieDetails.poster_path"
+                alt="Movie Poster">
         </div>
-        <div *ngIf="!loading" class="col-md-8">
-            <div class="details">
-                <div class="detail">
-                    <strong>Year:</strong>
-                    <span>{{ movie?.Year }}</span>
-                </div>
-                <div class="detail">
-                    <strong>Rated:</strong>
-                    <span>{{ movie?.Rated }}</span>
-                </div>
-                <div class="detail">
-                    <strong>Released:</strong>
-                    <span>{{ movie?.Released }}</span>
-                </div>
-                <div class="detail">
-                    <strong>Runtime:</strong>
-                    <span>{{ movie?.Runtime }}</span>
-                </div>
-                <div class="detail">
-                    <strong>Genre:</strong>
-                    <span>{{ movie?.Genre }}</span>
-                </div>
-                <div class="detail">
-                    <strong>Director:</strong>
-                    <span>{{ movie?.Director }}</span>
-                </div>
-                <div class="detail">
-                    <strong>Writer:</strong>
-                    <span>{{ movie?.Writer }}</span>
-                </div>
-                <div class="detail">
-                    <strong>Actors:</strong>
-                    <span>{{ movie?.Actors }}</span>
-                </div>
-                <div class="detail">
-                    <strong>Language:</strong>
-                    <span>{{ movie?.Language }}</span>
-                </div>
-                <div class="detail">
-                    <strong>Country:</strong>
-                    <span>{{ movie?.Country }}</span>
-                </div>
-                <div class="detail">
-                    <strong>Awards:</strong>
-                    <span>{{ movie?.Awards }}</span>
-                </div>
-                <div class="detail">
-                    <strong>imdbRating:</strong>
-                    <span>{{ movie?.imdbRating }}</span>
-                </div>
-                <div class="detail">
-                    <strong>Type:</strong>
-                    <span>{{ movie?.Type }}</span>
-                </div>
+        <div class="col-md-8">
+            <h2 class="title">{{ movieDetails.title }}</h2>
+            <p class="info">
+                <span class="release-date">Release Date: {{ movieDetails.release_date }}</span>
+                <span class="language">Language: {{ movieDetails.original_language }}</span>
+                <span class="type">Type: Movie</span>
+            </p>
+            <p class="overview">{{ movieDetails.overview }}</p>
+            <div class="rating">
+                <span class="label">Rating:</span>
+                <span class="stars">
+                    {{ movieDetails.vote_average }} / 10
+                </span>
+            </div>
+            <div class="additional-fields">
+                <p class="field"><span class="field-label">Popularity:</span> {{ movieDetails.popularity }}</p>
+                <p class="field"><span class="field-label">Vote Count:</span> {{ movieDetails.vote_count }}</p>
             </div>
         </div>
     </div>
+</div>
+
+<div *ngIf="!movieDetails" class="loading">
+    <p>Loading movie details...</p>
 </div>

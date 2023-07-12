@@ -1,20 +1,20 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { MovieListComponent } from './movie-list/movie-list.component';
-import { MovieDetailsComponent } from './movie-details/movie-details.component';
+import { MovieSearchListComponent } from './movie-search-list/movie-search-list.component';
+import { MovieSearchDetailsComponent } from './movie-search-details/movie-search-details.component';
 import { HomeComponent } from './home/home.component';
 import { TopRatedMoviesComponent } from './top-rated-movies/top-rated-movies.component';
 import { UpcomingMoviesComponent } from './upcoming-movies/upcoming-movies.component';
-import { MovieDetComponent } from './movie-det/movie-det.component';
+import { MovieDetailsComponent } from './movie-details/movie-details.component';
 
 const routes: Routes = [
     // { path: '', redirectTo: '/movies', pathMatch: 'full' },
     { path: '', component: HomeComponent },
-    { path: 'movies', component: MovieListComponent },
-    { path: 'movies/:id', component: MovieDetailsComponent },
+    { path: 'Search', component: MovieSearchListComponent },
+    { path: 'movies/:id', component: MovieSearchDetailsComponent },
     { path: 'top-rated', component: TopRatedMoviesComponent },
     { path: 'upcoming', component: UpcomingMoviesComponent },
-    { path: 'movie/:id', component: MovieDetComponent }
+    { path: 'movie/:id', component: MovieDetailsComponent }
 ];
 
 @NgModule({

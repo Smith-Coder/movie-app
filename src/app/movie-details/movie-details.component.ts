@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { MovieService } from '../movie.service';
+import { TmdbService } from '../tmdb.service';
 
 @Component({
   selector: 'app-movie-details',
@@ -8,25 +8,24 @@ import { MovieService } from '../movie.service';
   styleUrls: ['./movie-details.component.css']
 })
 export class MovieDetailsComponent implements OnInit {
-  movieId: string | null = '';
-  movie: any;
-  loading: boolean = true;
+  movieId: string = '';
+  movieDetails: any; // Update the data type as per your API response
 
-  constructor(private route: ActivatedRoute, private movieService: MovieService) { }
+  constructor(
+    private route: ActivatedRoute,
+    private tmdbService: TmdbService
+  ) { }
 
-  ngOnInit(): void {
-    this.route.paramMap.subscribe(params => {
-      this.movieId = params.get('id');
-      this.loadMovieDetails();
-      console.log("in")
+  ngOnInit() {
+    this.route.params.subscribe(params => {
+      this.movieId = params['id'];
+      this.fetchMovieDetails();
     });
   }
 
-  loadMovieDetails(): void {
-    this.movieService.getMovieDetails(this.movieId!)
-      .subscribe(data => {
-        this.movie = data;
-        this.loading = false;
-      });
+  fetchMovieDetails() {
+    this.tmdbService.getMovieDetails(this.movieId).subscribe((details: any) => {
+      this.movieDetails = details;
+    });
   }
 }

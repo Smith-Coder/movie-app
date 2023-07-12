@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'movie-app';
+  data: string = "";
+  handleResults(searchObj: any) {
+    this.data = searchObj
+  }
 }

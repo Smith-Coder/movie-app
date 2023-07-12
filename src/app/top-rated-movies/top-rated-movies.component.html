@@ -1,11 +1,1 @@
-<h1>Top Rated Movies</h1>
-<div *ngIf="topRatedMovies.length > 0">
-    <div class="row">
-        <div class="col-md-3" *ngFor="let movie of topRatedMovies">
-            <app-card [movie]="movie"></app-card>
-        </div>
-    </div>
-</div>
-<div *ngIf="topRatedMovies.length === 0">
-    <p>No top-rated movies found.</p>
-</div>
+<app-movie-list title="Top Rated Movies" [serviceMethod]="'topRated'"></app-movie-list>

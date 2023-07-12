@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+<nav class="navbar navbar-expand-lg bg-dark mb-4 mt-4" data-bs-theme="dark">
     <div class="container-fluid">
         <h1 class="navbar-brand">IMDB Lite</h1>
         <div class="collapse navbar-collapse">
@@ -13,6 +13,11 @@
                     <a class="nav-link" routerLink="/upcoming">Upcoming Movies</a>
                 </li>
             </ul>
+            <div class="d-flex" role="search">
+                <input class="form-control me-sm-2" type="text" [(ngModel)]="searchTerm" placeholder="Search movies"
+                    (keyup.enter)="searchMovies()">
+                <button class="btn btn-secondary my-2 my-sm-0" (click)="searchMovies()">Search</button>
+            </div>
         </div>
     </div>
 </nav>

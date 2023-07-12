@@ -2,11 +2,11 @@ import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-movie-content',
-  templateUrl: './movie-content.component.html',
-  styleUrls: ['./movie-content.component.css']
+  selector: 'app-movie-search-card',
+  templateUrl: './movie-search-card.component.html',
+  styleUrls: ['./movie-search-card.component.css']
 })
-export class MovieContentComponent {
+export class MovieSearchCardComponent {
   constructor(private router: Router) { }
   @Input() movie: any;
   navigateToMovieDetails(movieId: string): void {

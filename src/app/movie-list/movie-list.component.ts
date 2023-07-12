@@ -1,59 +1,58 @@
-import { Component, OnInit } from '@angular/core';
-import { MovieService } from '../movie.service';
+import { Component, Input } from '@angular/core';
+import { TmdbService } from '../tmdb.service';
 
 @Component({
   selector: 'app-movie-list',
   templateUrl: './movie-list.component.html',
   styleUrls: ['./movie-list.component.css']
 })
-export class MovieListComponent implements OnInit {
-  searchTerm: string = "Marvel";
+export class MovieListComponent {
+  @Input() title: string = "";
+  @Input() serviceMethod: string = "";
+  loading: boolean = true;
   movies: any[] = [];
-  filteredMovies: any[] = [];
-  loading: boolean = false;
-  page: number = 1;
-  hasMoreResults: boolean = true;
-  selectedFilter: string = 'all'; // Track the selected filter option
 
-  constructor(private movieService: MovieService) { }
+  constructor(private tmdbService: TmdbService) { }
 
-  ngOnInit(): void {
-    this.loadMovies();
-  }
+  ngOnInit() {
 
-  searchMovies(): void {
-    this.page = 1;
-    this.movies = [];
-    this.hasMoreResults = true;
-    this.loadMovies();
-  }
+    switch (this.serviceMethod) {
+      case 'topRated':
+        this.tmdbService.getTopRatedMovies().subscribe(
+          (response: any) => {
+            this.movies = response.results;
+            this.loading = false;
+          },
+          (error: any) => {
+            console.log(error);
+          }
 
-  loadMovies(): void {
-    if (this.hasMoreResults && !this.loading) {
-      this.loading = true;
-      this.movieService.searchMovies(this.searchTerm, this.page)
-        .subscribe(data => {
-          this.movies = this.movies.concat(data.Search);
-          this.filteredMovies = this.movies; // Initialize filteredMovies array
-          this.hasMoreResults = (data.totalResults - this.movies.length) > 0;
-          this.loading = false;
-          this.filterMovies(); // Apply initial filter
-        });
-      this.page++;
-    }
-  }
-
-  onScroll(): void {
-    this.loadMovies();
-  }
-
-  filterMovies(): void {
-    if (this.selectedFilter === 'movies') {
-      this.filteredMovies = this.movies.filter(movie => movie.Type === 'movie');
-    } else if (this.selectedFilter === 'series') {
-      this.filteredMovies = this.movies.filter(movie => movie.Type === 'series');
-    } else {
-      this.filteredMovies = this.movies; // Show all movies if 'all' filter selected
+        );
+        break;
+      case 'upcoming':
+        this.tmdbService.getUpcomingMovies().subscribe(
+          (response: any) => {
+            this.movies = response.results;
+            this.loading = false;
+          },
+          (error: any) => {
+            console.log(error);
+          }
+        );
+        break;
+      case 'new':
+        this.tmdbService.getNewReleases().subscribe(
+          (response: any) => {
+            this.movies = response.results;
+            this.loading = false;
+          },
+          (error: any) => {
+            console.log(error);
+          }
+        );
+        break;
+      default:
+        break;
     }
   }
 }

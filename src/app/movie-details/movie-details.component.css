@@ -1,15 +1,69 @@
-.details {
+/* Custom CSS styles */
+.movie-details {
     margin-top: 20px;
 }
 
-.detail {
+.poster {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.title {
+    font-size: 30px;
+    font-weight: bold;
     margin-bottom: 10px;
 }
 
-.detail strong {
-    font-weight: bold;
+.info {
+    font-size: 18px;
+    margin-bottom: 10px;
 }
 
-.detail span {
-    margin-left: 10px;
+.release-date,
+.language,
+.type {
+    margin-right: 20px;
+    font-size: 16px;
+}
+
+.overview {
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.label {
+    font-size: 20px;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.stars {
+    color: #ffd700;
+}
+
+.additional-fields {
+    margin-top: 20px;
+}
+
+.field {
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+
+.field-label {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.loading {
+    margin-top: 20px;
+    text-align: center;
 }
