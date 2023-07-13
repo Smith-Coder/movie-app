@@ -7,4 +7,8 @@ import { Component, Input } from '@angular/core';
 })
 export class MovieCardComponent {
   @Input() movie: any; // Update the data type as per your API response
+  @Input() ck: boolean = false;
+  // navigateToMovieDetails(movieId: string): void {
+  //   this.router.navigate(['/movies', movieId]);
+  // }
 }

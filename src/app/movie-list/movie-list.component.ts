@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { TmdbService } from '../tmdb.service';
+import { TmdbService } from '../services/tmdb.service';
 
 @Component({
   selector: 'app-movie-list',

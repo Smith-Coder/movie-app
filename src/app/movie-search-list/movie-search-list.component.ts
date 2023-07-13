@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { MovieService } from '../movie.service';
-import { SearchService } from 'search.service';
+import { MovieService } from '../services/movie.service';
+import { SearchService } from 'src/app/services/search.service';
 
 @Component({
   selector: 'movie-search-list',

@@ -5,10 +5,11 @@
 </div>
 
 <ng-template #movieList>
+    <h1>{{title}}</h1>
     <div *ngIf="movies.length > 0">
         <div class="row">
             <div class="col-md-3" *ngFor="let movie of movies">
-                <app-movie-card [movie]="movie"></app-movie-card>
+                <app-movie-card [movie]="movie" [ck]="false"></app-movie-card>
             </div>
         </div>
     </div>
