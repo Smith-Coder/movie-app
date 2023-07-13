@@ -16,6 +16,9 @@ import { MovieCardComponent } from './movie-card/movie-card.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { MovieListComponent } from './movie-list/movie-list.component';
 import { SearchService } from 'src/app/services/search.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
 
 @NgModule({
   declarations: [
@@ -35,7 +38,8 @@ import { SearchService } from 'src/app/services/search.service';
     FormsModule,
     HttpClientModule,
     InfiniteScrollModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [TmdbService, SearchService],
   bootstrap: [AppComponent]

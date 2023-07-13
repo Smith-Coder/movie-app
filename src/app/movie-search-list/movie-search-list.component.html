@@ -10,6 +10,7 @@
             </select>
         </div>
         <br>
+
         <div class="row mb-4">
             <div class="col-md-3" *ngFor="let movie of filteredMovies" infiniteScroll [infiniteScrollDistance]="2"
                 (scrolled)="onScroll()">

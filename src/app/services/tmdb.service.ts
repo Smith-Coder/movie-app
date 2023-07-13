@@ -10,18 +10,19 @@ export class TmdbService {
 
   constructor(private http: HttpClient) { }
 
-  getNewReleases() {
+  getPopularReleases(page: number) {
     const currentDate = new Date().toISOString().split('T')[0];
-    const url = `${this.baseUrl}/discover/movie?api_key=${this.apiKey}&primary_release_date.gte=${currentDate}`;
+    const url = `${this.baseUrl}/movie/popular?api_key=${this.apiKey}&page=${page}`;
     return this.http.get(url);
   }
 
-  getTopRatedMovies() {
-    return this.http.get(`${this.baseUrl}/movie/top_rated?api_key=${this.apiKey}`);
+  getTopRatedMovies(page: number) {
+    return this.http.get(`${this.baseUrl}/movie/top_rated?api_key=${this.apiKey}&page=${page}`);
   }
 
-  getUpcomingMovies() {
-    return this.http.get(`${this.baseUrl}/movie/upcoming?api_key=${this.apiKey}`);
+  getUpcomingMovies(page: number) {
+    const currentDate = new Date().toISOString().split('T')[0];
+    return this.http.get(`${this.baseUrl}/movie/upcoming?api_key=${this.apiKey}&&primary_release_date.gte=${currentDate}&page=${page}`);
   }
   getMovieDetails(movieId: string) {
     return this.http.get(`${this.baseUrl}/movie/${movieId}?api_key=${this.apiKey}`);

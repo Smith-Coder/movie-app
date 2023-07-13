@@ -1,11 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 import { MovieService } from '../services/movie.service';
 import { SearchService } from 'src/app/services/search.service';
+import { trigger, transition, animate, style, query, stagger } from '@angular/animations';
 
 @Component({
   selector: 'movie-search-list',
   templateUrl: './movie-search-list.component.html',
-  styleUrls: ['./movie-search-list.component.css']
+  styleUrls: ['./movie-search-list.component.css'],
+  animations: [
+    trigger('movieAnimation', [
+      transition('* => *', [
+        query('.col-md-3', [
+          style({ opacity: 0, transform: 'translateY(-20px)' }),
+          stagger(100, [
+            animate('300ms ease-out', style({ opacity: 1, transform: 'none' })),
+          ])
+        ])
+      ])
+    ])
+  ]
 })
 export class MovieSearchListComponent implements OnInit {
   searchTerm: string = "Marvel";

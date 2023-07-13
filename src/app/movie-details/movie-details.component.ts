@@ -28,4 +28,5 @@ export class MovieDetailsComponent implements OnInit {
       this.movieDetails = details;
     });
   }
+  
 }
