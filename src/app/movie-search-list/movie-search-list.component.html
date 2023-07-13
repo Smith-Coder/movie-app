@@ -1,21 +1,24 @@
 <div class="container">
-    <div class="dropdown ml-auto">
-        <label for="filterDropdown">Filter :</label>
+    <div>
+        <div class="dropdown ml-auto">
+            <label for="filterDropdown">Filter :</label>
+            <br>
+            <select id="filterDropdown" [(ngModel)]="selectedFilter" (change)="filterMovies()">
+                <option value="all">All</option>
+                <option value="movies">Movies</option>
+                <option value="series">Series</option>
+            </select>
+        </div>
         <br>
-        <select id="filterDropdown" [(ngModel)]="selectedFilter" (change)="filterMovies()">
-            <option value="all">All</option>
-            <option value="movies">Movies</option>
-            <option value="series">Series</option>
-        </select>
-    </div>
-    <br>
-    <div class="row mb-4">
-        <div class="col-md-3" *ngFor="let movie of filteredMovies" infiniteScroll [infiniteScrollDistance]="2"
-            (scrolled)="onScroll()">
-            <app-movie-card [movie]="movie" [ck]="true"></app-movie-card>
-        </div>
-        <div class="col-12" *ngIf="loading" style="text-align: center;">
-            <div class="spinner-border text-primary"></div>
+        <div class="row mb-4">
+            <div class="col-md-3" *ngFor="let movie of filteredMovies" infiniteScroll [infiniteScrollDistance]="2"
+                (scrolled)="onScroll()">
+                <app-movie-card [movie]="movie" [ck]="true"></app-movie-card>
+            </div>
+            <div class="col-12" *ngIf="loading" style="text-align: center;">
+                <div class="spinner-border text-primary"></div>
+            </div>
         </div>
     </div>
+
 </div>

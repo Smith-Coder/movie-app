@@ -16,6 +16,7 @@ import { MovieCardComponent } from './movie-card/movie-card.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { MovieListComponent } from './movie-list/movie-list.component';
 import { SearchService } from 'src/app/services/search.service';
+
 @NgModule({
   declarations: [
     AppComponent,
